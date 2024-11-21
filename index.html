@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>effectif</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .login-container h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input {
+            width: 95%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background: #5cb85c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #4cae4c;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h1>Connectez-vous à la page effectif</h1>
+    <form id="loginForm">
+        <div class="form-group">
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit" class="btn">Se connecter</button>
+        <div class="error" id="errorMessage"></div>
+    </form>
+</div>
+
+<script>
+    const passwordLinks = {
+        "F1": "https://aroma-rh.github.io/F01/",
+        "F2": "https://aroma-rh.github.io/F02/",
+        "F3": "https://aroma-rh.github.io/F03/",
+        "F4": "https://aroma-rh.github.io/F04/",
+        "F5": "https://aroma-rh.github.io/F05/",
+        "F6": "https://aroma-rh.github.io/F06/",
+        "F8": "https://aroma-rh.github.io/08/",
+        "F9": "https://aroma-rh.github.io/F09/",
+        "F13": "https://aroma-rh.github.io/F13/",
+        "F19": "https://aroma-rh.github.io/F19/",
+        "F20": "https://aroma-rh.github.io/F20/",
+        "F21": "https://aroma-rh.github.io/F21/",
+        "F22": "https://aroma-rh.github.io/F22/"
+    };
+
+    const form = document.getElementById('loginForm');
+    form.addEventListener('submit', function (e) {
+        e.preventDefault(); 
+        const password = document.getElementById('password').value.trim();
+
+        
+        if (passwordLinks[password]) {
+            window.location.href = passwordLinks[password];
+        } else {
+            document.getElementById('errorMessage').textContent = 'Mot de passe incorrect. Veuillez réessayer.';
+        }
+    });
+</script>
+
+</body>
+</html>
